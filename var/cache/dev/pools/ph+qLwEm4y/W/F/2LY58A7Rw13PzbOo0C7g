@@ -1,0 +1,51 @@
+<?php //%255BApp%255CController%255CProjectController%2523edit%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Routing\\Annotation\\Route'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Routing\\Annotation\\Route')),
+        clone ($p['Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\Entity'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\Entity')),
+    ],
+    null,
+    [
+        'Symfony\\Component\\Routing\\Annotation\\Route' => [
+            'path' => [
+                '/projet/{idProject}/edition',
+            ],
+            'name' => [
+                '_project_edit',
+            ],
+            'requirements' => [
+                [
+                    'idProject' => '\\d+',
+                ],
+            ],
+            'options' => [
+                [
+                    'expose' => true,
+                ],
+            ],
+            'methods' => [
+                [
+                    'GET',
+                    'POST',
+                    'PUT',
+                ],
+            ],
+        ],
+        'Sensio\\Bundle\\FrameworkExtraBundle\\Configuration\\ParamConverter' => [
+            'name' => [
+                1 => 'project',
+            ],
+            'options' => [
+                1 => [
+                    'expr' => 'repository.findId(idProject)',
+                ],
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+    ],
+    []
+); }];

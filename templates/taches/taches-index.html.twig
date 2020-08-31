@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+
+{% block titre %}
+    <a href="/">Retour</a>/Tâches
+{% endblock %}
+
+{% block body %}
+    <div class="mb-5">
+        <button class="btn btn-sm btn-primary edit-stains" title="Ajouter" data-id="0"  data-label="">Ajouter</button>
+    </div>
+    <table class="table table-sm table-hover table-striped">
+        <thead>
+        <tr>
+            <th>Tâches</th>
+            <th>Date de création</th>
+            <th>Projet</th>
+            <th>Statut</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for task in stains %}
+            <tr>
+                <td>{{ task.task }}</td>
+                <td>{{ task.createdAt | date('d/m/Y H:i:s') }}</td>
+                <td>{{ task.project }}</td>
+                <td>{{ task.state }}</td>
+                <td>
+                    <button class="btn btn-success btn-sm edit-stains" title="Modifier"  data-type="stains" data-id="{{task.id}}"  data-label="{{task.project}}"><i class="fas fa-pen"></i></button>
+                   <!--  <button class="btn btn-danger btn-sm remove-stains" data-id="{{task.id}}" title="Supprimer"><i class="far fa-trash-alt"></i></button> -->
+                    <a href="{{ path('_taches_remove', {'id': task.id}) }}"><button class="btn btn-danger btn-sm" title="Supprimer"><i class="far fa-trash-alt"></i></button></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('taches') }}
+{% endblock %}

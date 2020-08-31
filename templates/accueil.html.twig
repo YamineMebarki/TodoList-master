@@ -1,0 +1,113 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+    <style>
+        .center{
+            margin-right:40px;
+        }
+        .fa-exclamation-circle{
+            font-size: 20px;
+            color: orange;
+        }
+    </style>
+{% endblock %}
+{% block titre %}
+    <p class="title mb-5">ACCUEIL</p>
+{% endblock %}
+
+{% block body %}
+    <div class="panel">
+        <button type="button" class="btn btn-light btn-accueil" onclick="location.href = '/projets';" > <i class="far fa-paper-plane"></i><p> Projets</p></button>
+        <button type="button" class="btn btn-light btn-accueil" onclick="location.href = '/tâches'"><i class="fas fa-check"></i><p> Tâches</p></button>
+        <button type="button" class="btn btn-light btn-accueil" onclick="location.href = '/parametres';" ><i class="fas fa-cogs"></i><p> Statuts</p></button>
+        <button type="button" class="btn btn-light btn-accueil" onclick="location.href = '/enonce';" ><i class="far fa-file-alt"></i><p>Enoncé</p></button>
+    </div>
+    <hr/>
+    <p class="h1 mt-5 mb-3">Javascript</p>
+    <p>1. Sélectionner la bonne déclaration pour chaque variable</p>
+    <pre><code class="text-success">
+            var tab;
+            for(let i = 0 ; i < 10 ; i++){
+            tab.push(i) ;
+            }
+        </code></pre>
+    <p class="mt-4 mb-3">2. Trouver les bonnes déclarations d’objet</p>
+    <pre><code class="text-success">
+            let objet = {};
+            let  objet;
+            let  objet = new Object();
+        </code></pre>
+    <p class="mt-4 mb-3">3. Recherche Idefix </p>
+    <pre><code class="text-success">
+             const personnages = [{id :1, label : "Astérix"}
+		    , {id :2, label : "Obelix"}
+                    , {id :3, label : "Bonnemine"}
+		    , {id :4, label : " Panoramix"}
+		    , {id :5, label : " Idefix"}
+                    , {id :6, label : " Falbala"}
+		    , {id :7, label : " Agecanoix"}
+                    , {id :8, label : " Falbala"}
+        </code></pre>
+    <p class="mt-4 mb-3">4. Supprimer le membre</p>
+    <pre><code class="text-success">
+            {id :8, label : "Falbala"}
+        </code></pre>
+    <p class="mt-4 mb-3">5. Ajouter le membre</p>
+    <pre><code class="text-success">
+{id :8, label : "Agecanomix"}
+        </code></pre>
+    <p class="mt-4 mb-3">6. Récupérer id et label de Bonnemine</p>
+    <p class="mb-3"><i class="fas fa-exclamation-circle"></i> Voir console.log</p>
+    <hr/>
+    <p class="h2">React</p>
+    <p>1. Quel code offre le bon dénombrement ?</p>
+    <pre><code class="text-success">
+import React, { useState } from 'react';
+function Example() {
+ const [count, setCount] = useState(0);
+                        return (
+    < div>
+      < p>Vous avez cliqué {count} fois< /p>
+      < button onClick={() => setCount(count + 1)}>
+        Cliquez ici
+        < /button>
+    < /div>
+  );
+}
+        </code></pre>
+    <p class="mt-3 mb-3">2. Optimiser le code suivant pour éviter de transmettre des propriétés inutiles à certains composants enfants.</p>
+    <pre><code class="text-success">
+const ThemeContext = React.createContext('light');
+class App extends React.Component {
+    render() {
+        return (
+            < ThemeContext.Provider value="dark">
+            < Toolbar />
+            < /ThemeContext.Provider>
+    );
+    }
+}
+
+function Toolbar() {  return (
+    < div>
+    < ThemedButton />
+    < /div>
+);
+}
+
+class ThemedButton extends React.Component {
+    static contextType = ThemeContext;
+    render() {
+        return < Button theme={this.context} />;
+            }
+}
+        </code></pre>
+    <p class="mt-3 mb-3">3. Quel Hook permet d'interagir avec le cycle de vie ? Écrivez un exemple </p>
+    <p class="h1">{ useState }</p>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('accueil') }}
+{% endblock %}
+
+
+

@@ -1,0 +1,36 @@
+{{ form_start(form) }}
+            {{ form_row(form.task) }}
+<div class="form-group">
+    <label for="project">Project :</label>
+    <select class="form-control" name="project" id="project" required>
+        {% if projectStains != 0 %}
+            <option value="{{ projectStains }}" >{{ projectStains }}</option>
+        {% else %}
+            <option value="" >Choissez :</option>
+        {% endif %}
+        {% for project in projects %}
+            {% if projectStains != 0 and projectStains == project.label %}
+            {% else %}
+                <option value="{{ project.label }}" >{{ project.label }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+</div>
+<div class="form-group">
+    <label for="state">Status :</label>
+    <select class="form-control" name="state" id="state" required>
+        {% if projectStains != 0 %}
+            <option value="{{ stateStains }}" >{{ stateStains }}</option>
+        {% else %}
+            <option value="" >Choissez :</option>
+        {% endif %}
+        {% for state in states %}
+            {% if stateStains != 0 and stateStains == state.label %}
+            {% else %}
+                <option value="{{ state.label }}" >{{ state.label }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+</div>
+{{ form_end(form) }}
+
